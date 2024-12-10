@@ -15,7 +15,7 @@
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 a {
@@ -27,11 +27,20 @@ img {
   height: 100%;
 }
 
+.headerSection {
+  width: 100%;
+  height: auto;
+  background-color: var(--LightBlue);
+}
+
 .homeHeroSection {
+  width: 100%;
+  height: auto;
   background-color: var(--LightBlue);
 }
 
 .bannerSection {
+  max-width: 90vw;
   height: auto;
 }
 
@@ -39,3 +48,15 @@ img {
   width: 25rem;
   height: 20rem;
 }
+
+.sliderSection {
+  width: 100%;
+  height: auto;
+  margin: 4rem 0;
+}
+
+/* .slick-dots {
+  position: absolute;
+  bottom: 20px;
+  text-align: center;
+} */

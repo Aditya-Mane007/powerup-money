@@ -1,10 +1,7 @@
-import { useEffect } from "react"
-import "@/styles/globals.css"
-import "bootstrap/dist/css/bootstrap.css"
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import "@/styles/globals.css";
+import "bootstrap/dist/css/bootstrap.css";
 
-import Script from "next/script"
+import Script from "next/script";
 
 export default function App({ Component, pageProps }) {
   return (
@@ -16,5 +13,5 @@ export default function App({ Component, pageProps }) {
       />
       <Component {...pageProps} />
     </>
-  )
+  );
 }
