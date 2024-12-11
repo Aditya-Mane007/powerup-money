@@ -1,6 +1,8 @@
-import React from "react"
-import { IoIosMenu } from "react-icons/io"
-import Link from "next/link"
+import React, { useEffect, useState } from "react";
+import { IoIosMenu } from "react-icons/io";
+import Link from "next/link";
+import Image from "next/image";
+import Logo from "../../../public/assets/powerUpLogo.svg";
 
 const links = [
   {
@@ -19,47 +21,58 @@ const links = [
     title: "Blog",
     link: "blog",
   },
-]
+];
 
 function Navbar() {
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      window.scrollY >= 80 ? setIsSticky(true) : setIsSticky(false);
+    });
+  }, []);
+
   return (
-    // <div className="d-flex justify-content-between p-4 heroSection">
-    <nav class="navbar navbar-expand-lg fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">
-          PowerUp Money
+    // <div classNameName="d-flex justify-content-between p-4 heroSection">
+    <nav
+      className={`navbar navbar-expand-lg ${isSticky ? "fixed-top" : ""} `}
+      style={{ background: `${isSticky ? "white" : "transparent"}` }}
+    >
+      <div className="container">
+        <a className="navbar-brand" href="#">
+          <Image src={Logo} width={50} height={50} />
         </a>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasNavbar"
           aria-controls="offcanvasNavbar"
         >
           <IoIosMenu />
-          {/* <span class="navbar-toggler-icon"></span> */}
+          {/* <span className="navbar-toggler-icon"></span> */}
         </button>
         <div
-          class="offcanvas offcanvas-end"
+          className="offcanvas offcanvas-end"
           tabindex="-1"
           id="offcanvasNavbar"
           aria-labelledby="offcanvasNavbarLabel"
         >
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-              Offcanvas
-            </h5>
+          <div className="offcanvas-header">
+            <a className="navbar-brand" href="#">
+              <Image src={Logo} width={50} height={50} />
+            </a>
             <button
               type="button"
-              class="btn-close text-reset"
+              className="btn-close text-reset"
               data-bs-dismiss="offcanvas"
               aria-label="Close"
             ></button>
           </div>
-          <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <div className="offcanvas-body">
+            <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
               {links.map((link) => (
-                <li class="nav-item">
+                <li className="nav-item ">
                   <Link
                     className="nav-link active"
                     aria-current="page"
@@ -74,19 +87,7 @@ function Navbar() {
         </div>
       </div>
     </nav>
-  )
+  );
 }
 
-export default Navbar
-
-/* <div>
-        {links.map((link, index) => (
-          <Link
-            href={link.link}
-            key={index}
-            className="mx-2 text-dark text-decoration-none "
-          >
-            {link.title}
-          </Link>
-        ))}
-      </div> */
+export default Navbar;

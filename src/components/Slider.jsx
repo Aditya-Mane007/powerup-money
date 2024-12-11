@@ -1,8 +1,8 @@
-import React from "react"
-import Slider from "react-slick"
-import { IoIosArrowRoundForward } from "react-icons/io"
-import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
+import React from "react";
+import Slider from "react-slick";
+import { IoIosArrowRoundForward } from "react-icons/io";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function SimpleSlider() {
   var settings = {
@@ -11,10 +11,10 @@ export default function SimpleSlider() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-  }
+  };
   return (
     <Slider {...settings}>
-      <div className="container d-flex justify-content-center my-5">
+      <div className="container d-flex d-md-flex-direction-row justify-content-center my-5">
         <div className="imageDiv">
           <img
             src="https://res.cloudinary.com/dj524uqwc/image/upload/v1733833853/powerup%20money/HomeBannerImage_gbso11.png"
@@ -84,5 +84,5 @@ export default function SimpleSlider() {
         </div>
       </div>
     </Slider>
-  )
+  );
 }

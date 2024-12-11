@@ -1,5 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
+/* FONTS */
+
+@font-face {
+  font-family: "Norse";
+  src: url("../../public/fonts/Norse-Regular.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Hando";
+  src: url("../../public/fonts/Hando-Regular.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --LightBlue: #c9f0ff;
   --DarkBlue: #2187b3;
@@ -11,7 +27,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
+  font-family: Hando, sans-serif;
 }
 
 html,
@@ -112,12 +128,12 @@ img {
   margin: 0 0 1rem 0;
   border-radius: 10px;
   position: relative;
-  border: 1px solid var(--Black);
+  border: 1px solid #e4e4e4;
 }
 
 .categoryBlog .bar2 {
   width: 70%;
-  border: 1px solid var(--Black);
+  border: 1px solid #e4e4e4;
   position: relative;
   border-radius: 10px;
 }
@@ -157,13 +173,14 @@ img {
   width: 100%;
   height: auto;
   margin-top: 2rem;
+  font-family: "Hando";
 }
 
 .calculatorDiv {
   width: 70%;
   height: auto;
   padding: 1rem;
-  border: 1px solid var(--Black);
+  border: 1px solid #e4e4e4;
   /* background-color: var(--LightBlue); */
   border-radius: 10px;
 }
@@ -197,4 +214,33 @@ img {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .categoryBlog {
+    width: 100%;
+    height: auto;
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+
+  .categoryBlog div {
+    width: 100%;
+    height: 100%;
+  }
+  .calculatorGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+
+  .socials {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* gap: 1rem; */
+  }
 }

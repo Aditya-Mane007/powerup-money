@@ -1,12 +1,12 @@
-import React from "react"
-import HomeHeroSection from "@/components/HomeHeroSection"
-import Navbar from "@/components/LayoutComponents/Navbar"
-import SimpleSlider from "@/components/Slider"
-import Link from "next/link"
-import Slider from "react-slick"
-import { IoIosArrowRoundForward } from "react-icons/io"
-import ICON from "/public/assets/ICON.svg"
-import { TfiMoney } from "react-icons/tfi"
+import React from "react";
+import HomeHeroSection from "@/components/HomeHeroSection";
+import Navbar from "@/components/LayoutComponents/Navbar";
+import SimpleSlider from "@/components/Slider";
+import Link from "next/link";
+import Slider from "react-slick";
+import { IoIosArrowRoundForward } from "react-icons/io";
+import ICON from "/public/assets/ICON.svg";
+import { TfiMoney } from "react-icons/tfi";
 
 const tabsLinks = [
   {
@@ -31,7 +31,7 @@ const tabsLinks = [
     title: "news",
     link: "news",
   },
-]
+];
 
 function Home() {
   return (
@@ -45,15 +45,15 @@ function Home() {
       </section>
       {/* Blogs Category  */}
       <section className="container my-5">
-        {/* <ul class="nav nav-tabs">
+        {/* <ul classNameName="nav nav-tabs">
           {tabsLinks.map((link) => (
-            <li class="nav-item">
-              <a class="nav-link " aria-current="page" href="#">
+            <li classNameName="nav-item">
+              <a classNameName="nav-link " aria-current="page" href="#">
                 {link.title}
               </a>
             </li>
           ))} */}
-        <ul className="categoryLinks ">
+        <ul className="categoryLinks">
           <li className="active">Investment Portfolio</li>
           <li>Investment Portfolio</li>
           <li>Investment Portfolio</li>
@@ -128,7 +128,6 @@ function Home() {
         <div className="calculatorGrid">
           <div className="col-sm-4 calculatorDiv">
             <div className="calculatorIcon">
-              {/* <TfiMoney size={25} /> */}
               <img src="../assets/SIP.png" alt="ICON" />
             </div>
             <h4>SIP</h4>
@@ -149,9 +148,9 @@ function Home() {
             <div className="calculatorIcon">
               <img src="../assets/LUMSUM.png" alt="ICON" />
             </div>
-            <h4>SIP</h4>
+            <h4>Lumpsum</h4>
             <div className="description">
-              Calculate how much wealth you can accumulate through your SIPs
+              Estimate the future value of your lumpsum investments
             </div>
             <div className="d-flex justify-content-between align-items-center my-4">
               <Link
@@ -169,9 +168,10 @@ function Home() {
 
               <img src="../assets/CAGR.png" alt="ICON" />
             </div>
-            <h4>SIP</h4>
+            <h4>CAGR</h4>
             <div className="description">
-              Calculate how much wealth you can accumulate through your SIPs
+              Calculate annual growth rate of an investment over a specified
+              tenure
             </div>
             <div className="d-flex justify-content-between align-items-center my-4">
               <Link
@@ -190,9 +190,9 @@ function Home() {
 
               {/* <img src={ICON} alt="ICON" /> */}
             </div>
-            <h4>SIP</h4>
+            <h4>Home Affordability</h4>
             <div className="description">
-              Calculate how much wealth you can accumulate through your SIPs
+              Find out how much you can spend on a home, including home loans{" "}
             </div>
             <div className="d-flex justify-content-between align-items-center my-4">
               <Link
@@ -208,10 +208,8 @@ function Home() {
             <div className="calculatorIcon">
               <img src="../assets/EMI.png" alt="ICON" />
             </div>
-            <h4>SIP</h4>
-            <div className="description">
-              Calculate how much wealth you can accumulate through your SIPs
-            </div>
+            <h4>EMI</h4>
+            <div className="description">Estimate the EMI for any loan </div>
             <div className="d-flex justify-content-between align-items-center my-4">
               <Link
                 href="/"
@@ -226,10 +224,8 @@ function Home() {
             <div className="calculatorIcon">
               <img src="../assets/LIFEINSURANCE.png" alt="ICON" />
             </div>
-            <h4>SIP</h4>
-            <div className="description">
-              Calculate how much wealth you can accumulate through your SIPs
-            </div>
+            <h4>Life Insurance</h4>
+            <div className="description">Estimate the EMI for any loan </div>
             <div className="d-flex justify-content-between align-items-center my-4">
               <Link
                 href="/"
@@ -243,7 +239,7 @@ function Home() {
         </div>
       </section>
     </>
-  )
+  );
 }
 
-export default Home
+export default Home;
