@@ -3,6 +3,8 @@
 :root {
   --LightBlue: #c9f0ff;
   --DarkBlue: #2187b3;
+  --Black: #000000;
+  --White: #ffffff;
 }
 
 * {
@@ -20,6 +22,8 @@ body {
 
 a {
   color: black;
+  text-decoration: none;
+  text-transform: none;
 }
 
 img {
@@ -60,3 +64,137 @@ img {
   bottom: 20px;
   text-align: center;
 } */
+
+/* IGNORE ABOVE */
+
+.heroSection {
+  background-color: var(--LightBlue);
+}
+
+/*  */
+
+.categoryLinks {
+  display: flex;
+  padding-left: 0;
+  align-items: center;
+}
+
+.active {
+  background-color: var(--Black);
+  color: var(--White);
+  border-radius: 20px;
+}
+
+.categoryLinks li {
+  list-style: none;
+  height: auto;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.categoryBlog {
+  width: 100%;
+  height: 31rem;
+  margin: 2rem 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.categoryBlog .bar1 {
+  width: 30%;
+  height: auto;
+  /* border: 1px solid var(--Black); */
+}
+
+.categoryBlog .bar1 > div {
+  width: 100%;
+  height: 15rem;
+  margin: 0 0 1rem 0;
+  border-radius: 10px;
+  position: relative;
+  border: 1px solid var(--Black);
+}
+
+.categoryBlog .bar2 {
+  width: 70%;
+  border: 1px solid var(--Black);
+  position: relative;
+  border-radius: 10px;
+}
+
+.categoryBlog .bar2 img {
+  width: 100%;
+  height: 100%;
+  opacity: 0.75;
+  border-radius: 10px;
+}
+
+.categoryBlog .bar2 .info {
+  width: 70%;
+  position: absolute;
+  bottom: 3rem;
+  left: 40px;
+}
+
+.categoryBlog .bar1 .div1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0.5;
+  border-radius: 10px;
+}
+
+.categoryBlog .bar1 .div1 .info {
+  width: 80%;
+  position: absolute;
+  bottom: 10px;
+  left: 30px;
+}
+
+/*  */
+
+.calculatorSection {
+  width: 100%;
+  height: auto;
+  margin-top: 2rem;
+}
+
+.calculatorDiv {
+  width: 70%;
+  height: auto;
+  padding: 1rem;
+  border: 1px solid var(--Black);
+  /* background-color: var(--LightBlue); */
+  border-radius: 10px;
+}
+
+.calculatorIcon {
+  width: 4rem;
+  height: 4rem;
+  margin: 0.5rem 0;
+}
+
+.calculatorGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.calculatorGrid div {
+  width: 100%;
+}
+
+.footer {
+  width: 100%;
+  height: auto;
+  background-color: var(--Black);
+  padding: 2rem 0;
+  color: var(--White);
+}
+
+.socials {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
