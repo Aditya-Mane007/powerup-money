@@ -1,18 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"); */
 
 /* FONTS */
 
 @font-face {
   font-family: "Norse";
   src: url("../../public/fonts/Norse-Regular.otf");
-  font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Hando";
   src: url("../../public/fonts/Hando-Regular.otf");
-  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Quatera";
+  src: url("../../public/fonts/Quatera-Italic.ttf");
   font-style: normal;
 }
 
@@ -27,13 +31,31 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: Hando, sans-serif;
+  font-family: "Hando";
+}
+
+.rootLayout {
+  display: flex;
+  flex-direction: column;
+}
+
+.rootLayout main {
+  flex: 1;
+}
+
+
+.slick-arrow {
+  display: none;
 }
 
 html,
 body {
   max-width: 100vw;
   /* overflow-x: hidden; */
+}
+
+.slider-container .slick-list {
+  padding: 0;
 }
 
 a {
@@ -50,7 +72,18 @@ img {
 .headerSection {
   width: 100%;
   height: auto;
-  background-color: var(--LightBlue);
+  background-color: #c9f0ff;
+}
+
+.blogDiv .heading {
+  font-size: 1.2rem;
+  color: #2187b3;
+  padding: 0;
+  margin: 0;
+}
+
+.blogDiv .title {
+  font-size: 2rem;
 }
 
 .homeHeroSection {
@@ -67,6 +100,9 @@ img {
 .imageDiv {
   width: 25rem;
   height: 20rem;
+  display: flex;
+  justify-content: end;
+  align-items: center;
 }
 
 .sliderSection {
@@ -74,14 +110,6 @@ img {
   height: auto;
   margin: 4rem 0;
 }
-
-/* .slick-dots {
-  position: absolute;
-  bottom: 20px;
-  text-align: center;
-} */
-
-/* IGNORE ABOVE */
 
 .heroSection {
   background-color: var(--LightBlue);
@@ -101,16 +129,15 @@ img {
   border-radius: 20px;
 }
 
-.categoryLinks li {
-  list-style: none;
-  height: auto;
+.categoryLinks div {
+  width: auto;
   padding: 0.5rem;
   margin-right: 0.5rem;
 }
 
 .categoryBlog {
   width: 100%;
-  height: 31rem;
+  height: auto;
   margin: 2rem 0;
   display: flex;
   gap: 1rem;
@@ -119,13 +146,16 @@ img {
 .categoryBlog .bar1 {
   width: 30%;
   height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   /* border: 1px solid var(--Black); */
 }
 
 .categoryBlog .bar1 > div {
   width: 100%;
   height: 15rem;
-  margin: 0 0 1rem 0;
+  /* margin: 0 0  0; */
   border-radius: 10px;
   position: relative;
   border: 1px solid #e4e4e4;
@@ -136,12 +166,12 @@ img {
   border: 1px solid #e4e4e4;
   position: relative;
   border-radius: 10px;
+  color: white;
 }
 
 .categoryBlog .bar2 img {
   width: 100%;
   height: 100%;
-  opacity: 0.75;
   border-radius: 10px;
 }
 
@@ -163,11 +193,32 @@ img {
 .categoryBlog .bar1 .div1 .info {
   width: 80%;
   position: absolute;
-  bottom: 10px;
+  bottom: 30px;
   left: 30px;
 }
 
-/*  */
+.footer {
+  width: 100%;
+  height: auto;
+  background-color: var(--Black);
+  padding: 2rem 0;
+  color: var(--White);
+}
+
+.socials {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .socials {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* gap: 1rem; */
+  }
+}
 
 .calculatorSection {
   width: 100%;
@@ -177,7 +228,7 @@ img {
 }
 
 .calculatorDiv {
-  width: 70%;
+  width: 100%;
   height: auto;
   padding: 1rem;
   border: 1px solid #e4e4e4;
@@ -202,21 +253,66 @@ img {
   width: 100%;
 }
 
-.footer {
-  width: 100%;
-  height: auto;
-  background-color: var(--Black);
-  padding: 2rem 0;
-  color: var(--White);
+.calculatorGrid .calculatorDiv .calculatorTitle {
+  font-family: "Norse";
+  font-weight: 700;
+  font-size: 1.5rem;
 }
 
-.socials {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+.calculatorGrid .calculatorDiv .calculatorDescription {
+  font-family: "Hando";
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+.calculatorGrid .calculatorDiv .calculatorLinkBtn {
+  font-family: "Hando";
+  font-weight: 400;
+  font-size: 1rem;
 }
 
 @media screen and (max-width: 768px) {
+  .categoryBlog .bar1 {
+    width: 100%;
+    height: auto;
+    gap: 1rem;
+
+    /* border: 1px solid var(--Black); */
+  }
+  .categoryBlog .bar1 .div1 .info {
+    width: 80%;
+    height: auto;
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+  }
+
+  .categoryBlog .bar2 {
+    width: 100%;
+    height: 24rem;
+    /* border: 1px solid var(--Black); */
+  }
+
+  .categoryBlog .bar2 .info {
+    width: 80%;
+    height: auto;
+    position: absolute;
+    bottom: 1rem;
+    left: 40px;
+  }
+
+  .imageDiv {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .imageDiv img {
+    width: 100%;
+    height: 100%;
+  }
   .categoryBlog {
     width: 100%;
     height: auto;
@@ -232,15 +328,8 @@ img {
   }
   .calculatorGrid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 1rem;
     margin: 1rem 0;
-  }
-
-  .socials {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    /* gap: 1rem; */
   }
 }

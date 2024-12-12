@@ -1,67 +1,178 @@
-import React from "react";
-import HomeHeroSection from "@/components/HomeHeroSection";
-import Navbar from "@/components/LayoutComponents/Navbar";
-import SimpleSlider from "@/components/Slider";
-import Link from "next/link";
-import Slider from "react-slick";
-import { IoIosArrowRoundForward } from "react-icons/io";
-import ICON from "/public/assets/ICON.svg";
-import { TfiMoney } from "react-icons/tfi";
+import React, { useState } from "react"
+import "@/styles/Home.module.css"
+import Navbar from "@/components/LayoutComponents/Navbar"
+import SimpleSlider from "@/components/Slider"
+import Link from "next/link"
+import { IoIosArrowRoundForward } from "react-icons/io"
+import Slider from "react-slick"
+import { MdArrowOutward } from "react-icons/md"
 
-const tabsLinks = [
-  {
-    title: "Investment Portfolio",
-    link: "investmentportfoilo",
-  },
-  {
-    title: "P2P LENDING",
-    link: "p2plending",
-  },
-  {
-    title: "Personal Finance",
-    link: "personalfinance",
-  },
-  ,
-  {
-    title: "Wealth Concepts",
-    link: "waalthconcepts",
-  },
-  ,
-  {
-    title: "news",
-    link: "news",
-  },
-];
+import { tabsLinks, categoryBlogs } from "../lib/CONSTANTS.js"
 
 function Home() {
+  const [tabs, setTabs] = useState("Investment Portfolio")
+  var settings = {
+    className: "slider variable-width",
+    dots: false,
+    infinite: false,
+    accessibility: true,
+    centerMode: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    variableWidth: true,
+    arrows: false,
+  }
   return (
     <>
       <section className="headerSection">
         <div className="container">
           <Navbar />
-
           <SimpleSlider />
         </div>
       </section>
       {/* Blogs Category  */}
+
       <section className="container my-5">
-        {/* <ul classNameName="nav nav-tabs">
-          {tabsLinks.map((link) => (
-            <li classNameName="nav-item">
-              <a classNameName="nav-link " aria-current="page" href="#">
-                {link.title}
-              </a>
-            </li>
-          ))} */}
-        <ul className="categoryLinks">
-          <li className="active">Investment Portfolio</li>
-          <li>Investment Portfolio</li>
-          <li>Investment Portfolio</li>
-          <li>Investment Portfolio</li>
-          <li>Investment Portfolio</li>
-        </ul>
+        <div className="slider-container">
+          <Slider {...settings}>
+            {tabsLinks.map((tab) => (
+              <div style={{ width: "auto" }} onClick={() => setTabs(tab.title)}>
+                <p
+                  className={`rounded-5 border ${
+                    tabs == tab.title.trim() ? "active" : ""
+                  }`}
+                  style={{ padding: ".5rem 1rem", margin: "0 .5rem" }}
+                >
+                  {tab.title}
+                </p>
+              </div>
+            ))}
+            {/* <div style={{ width: "auto" }}>
+              <p
+                className="rounded-5 border active"
+                style={{ padding: ".5rem 1rem", margin: "0 .5rem" }}
+              >
+                Investment Portfolio
+              </p>
+            </div> */}
+            {/* <div style={{ width: "auto" }}>
+              <p
+                className="rounded-5 border"
+                style={{ padding: ".5rem 1rem", margin: "0 .5rem" }}
+              >
+                P2P LENDING
+              </p>
+            </div>
+            <div style={{ width: "auto" }}>
+              <p
+                className="rounded-5 border"
+                style={{ padding: ".5rem 1rem", margin: "0 .5rem" }}
+              >
+                Personal Finance
+              </p>
+            </div>
+            <div style={{ width: "auto" }}>
+              <p
+                className="rounded-5 border"
+                style={{ padding: ".5rem 1rem", margin: "0 .5rem" }}
+              >
+                Wealth Concepts
+              </p>
+            </div>
+            <div style={{ width: "auto" }}>
+              <p
+                className="rounded-5 border"
+                style={{ padding: ".5rem 1rem", margin: "0 .5rem" }}
+              >
+                news
+              </p>
+            </div> */}
+          </Slider>
+        </div>
 
         <div className="categoryBlog">
+          <div className="bar1">
+            <div className="div1">
+              <img src={categoryBlogs[tabs][0].img} alt="Finance Image" />
+              <div className="info">
+                <h5
+                  className="text-section text-dark fw-bold "
+                  style={{ fontFamily: "Quatera" }}
+                >
+                  {categoryBlogs[tabs][0].title}
+                </h5>
+                <h5
+                  className="text-section text-dark fw-bold "
+                  style={{ fontFamily: "Norse" }}
+                >
+                  {categoryBlogs[tabs][0].subtitle}
+                </h5>
+
+                <Link href="/">
+                  <IoIosArrowRoundForward size={25} />
+                </Link>
+              </div>
+            </div>
+            <div className="div1">
+              <img src={categoryBlogs[tabs][1].img} alt="Finance Image" />
+              <div className="info">
+                <h5
+                  className="text-section text-dark fw-bold "
+                  style={{ fontFamily: "Quatera" }}
+                >
+                  {categoryBlogs[tabs][1].title}
+                </h5>
+                <h5
+                  className="text-section text-dark fw-bold "
+                  style={{ fontFamily: "Norse" }}
+                >
+                  {categoryBlogs[tabs][1].subtitle}
+                </h5>
+                <Link href="/">
+                  <IoIosArrowRoundForward size={25} />
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="bar2">
+            <img src={categoryBlogs[tabs][2].img} />
+            <div className="info">
+              <h5
+                className="text-section text-light fw-bold"
+                style={{ fontFamily: "Quatera", fontSize: "1.5rem" }}
+              >
+                {categoryBlogs[tabs][2].title}
+              </h5>
+              <h5
+                className="text-section text-light fw-bold "
+                style={{ fontFamily: "Hando", fontSize: "1.5rem" }}
+              >
+                {categoryBlogs[tabs][2].subtitle}
+              </h5>
+              <div className="blog-info d-flex">
+                <div className="time">{categoryBlogs[tabs][2].time}</div>
+                <div className="date mx-2">{categoryBlogs[tabs][2].date}</div>
+              </div>
+              <div className="btn w-auto border text-light border-light rounded-pill my-4 justify-content-center align-items-center">
+                Read Article <IoIosArrowRoundForward />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="btn rounded-5"
+          style={{
+            border: "2px solid #e4e4e4",
+            fontFamily: "Norse",
+            width: "auto",
+          }}
+        >
+          Read All Financial Freedom Blogs{" "}
+          <MdArrowOutward style={{ marginLeft: ".5rem" }} />
+        </div>
+      </section>
+
+      {/* <div className="categoryBlog">
           <div className="bar1">
             <div className="div1">
               <img
@@ -69,9 +180,19 @@ function Home() {
                 alt="Finance Image"
               />
               <div className="info">
-                <h5 className="text-section text-dark fw-bold">
-                  Approach towards attaining Financial Freedom
+                <h5
+                  className="text-section text-dark fw-bold "
+                  style={{ fontFamily: "Quatera" }}
+                >
+                  Approach towards
                 </h5>
+                <h5
+                  className="text-section text-dark fw-bold "
+                  style={{ fontFamily: "Norse" }}
+                >
+                  attaining Financial Freedom
+                </h5>
+
                 <Link href="/">
                   <IoIosArrowRoundForward size={25} />
                 </Link>
@@ -83,8 +204,17 @@ function Home() {
                 alt="Finance Image"
               />
               <div className="info">
-                <h5 className="text-section text-dark fw-bold">
-                  Asset Allocation
+                <h5
+                  className="text-section text-dark fw-bold "
+                  style={{ fontFamily: "Quatera" }}
+                >
+                  Asset
+                </h5>
+                <h5
+                  className="text-section text-dark fw-bold "
+                  style={{ fontFamily: "Norse" }}
+                >
+                  Allocation
                 </h5>
                 <Link href="/">
                   <IoIosArrowRoundForward size={25} />
@@ -98,43 +228,71 @@ function Home() {
               alt="Finance Image"
             />
             <div className="info">
-              <h2 className="text-section text-dark fw-bold ">
-                Why <br /> Goal Based Investment Planning is important?
-              </h2>
+              <h5
+                className="text-section text-light fw-bold"
+                style={{ fontFamily: "Quatera", fontSize: "1.5rem" }}
+              >
+                Why
+              </h5>
+              <h5
+                className="text-section text-light fw-bold "
+                style={{ fontFamily: "Hando", fontSize: "1.5rem" }}
+              >
+                Goal Based Investment Planning is important?
+              </h5>
               <div className="blog-info d-flex">
                 <div className="time">5 min read</div>
                 <div className="date mx-2">03rd July 2024</div>
               </div>
-              <div className="btn border border-dark rounded-pill my-4  justify-content-center align-items-center">
+              <div className="btn w-auto border text-light border-light rounded-pill my-4 justify-content-center align-items-center">
                 Read Article <IoIosArrowRoundForward />
               </div>
-              {/* <Link href="/">
-                <IoIosArrowRoundForward size={25} />
-              </Link> */}
             </div>
-            {/*  */}
           </div>
         </div>
-      </section>
+        <div
+          className="btn rounded-5"
+          style={{
+            border: "2px solid #e4e4e4",
+            fontFamily: "Norse",
+            width: "auto",
+          }}
+        >
+          Read All Financial Freedom Blogs{" "}
+          <MdArrowOutward style={{ marginLeft: ".5rem" }} />
+        </div>
+      </section> */}
 
       {/* Calculator Section */}
 
       <section className="container my-5 calculatorSection">
         <div className="text-section">
-          <h1>Plan right, plan better</h1>
-          <h1>by using our financial calculators</h1>
+          <p
+            style={{
+              fontFamily: "Quatera",
+              fontSize: "2rem",
+              fontWeight: "400",
+            }}
+          >
+            Plan right, plan better
+          </p>
+          <p
+            style={{ fontFamily: "Hando", fontSize: "2rem", fontWeight: "700" }}
+          >
+            by using our financial calculators
+          </p>
         </div>
 
-        <div className="calculatorGrid">
+        <div className=" calculatorGrid">
           <div className="col-sm-4 calculatorDiv">
             <div className="calculatorIcon">
               <img src="../assets/SIP.png" alt="ICON" />
             </div>
-            <h4>SIP</h4>
-            <div className="description">
+            <p className="calculatorTitle">SIP</p>
+            <div className="calculatorDescription">
               Calculate how much wealth you can accumulate through your SIPs
             </div>
-            <div className="d-flex justify-content-between align-items-center my-4">
+            <div className="d-flex justify-content-between align-items-center my-4 calculatorLinkBtn">
               <Link
                 href="/"
                 className="text-decoration-none text-dark d-flex justify-content-between w-100"
@@ -148,11 +306,11 @@ function Home() {
             <div className="calculatorIcon">
               <img src="../assets/LUMSUM.png" alt="ICON" />
             </div>
-            <h4>Lumpsum</h4>
-            <div className="description">
+            <p className="calculatorTitle">Lumpsum</p>
+            <div className="calculatorDescription">
               Estimate the future value of your lumpsum investments
             </div>
-            <div className="d-flex justify-content-between align-items-center my-4">
+            <div className="d-flex justify-content-between align-items-center my-4 calculatorLinkBtn">
               <Link
                 href="/"
                 className="text-decoration-none text-dark d-flex justify-content-between w-100"
@@ -168,12 +326,12 @@ function Home() {
 
               <img src="../assets/CAGR.png" alt="ICON" />
             </div>
-            <h4>CAGR</h4>
-            <div className="description">
+            <p className="calculatorTitle">CAGR</p>
+            <div className="calculatorDescription">
               Calculate annual growth rate of an investment over a specified
               tenure
             </div>
-            <div className="d-flex justify-content-between align-items-center my-4">
+            <div className="d-flex justify-content-between align-items-center my-4 calculatorLinkBtn">
               <Link
                 href="/"
                 className="text-decoration-none text-dark d-flex justify-content-between w-100"
@@ -190,11 +348,11 @@ function Home() {
 
               {/* <img src={ICON} alt="ICON" /> */}
             </div>
-            <h4>Home Affordability</h4>
-            <div className="description">
+            <p className="calculatorTitle">Home Affordability</p>
+            <div className="calculatorDescription">
               Find out how much you can spend on a home, including home loans{" "}
             </div>
-            <div className="d-flex justify-content-between align-items-center my-4">
+            <div className="d-flex justify-content-between align-items-center my-4 calculatorLinkBtn">
               <Link
                 href="/"
                 className="text-decoration-none text-dark d-flex justify-content-between w-100"
@@ -208,9 +366,11 @@ function Home() {
             <div className="calculatorIcon">
               <img src="../assets/EMI.png" alt="ICON" />
             </div>
-            <h4>EMI</h4>
-            <div className="description">Estimate the EMI for any loan </div>
-            <div className="d-flex justify-content-between align-items-center my-4">
+            <p className="calculatorTitle">EMI</p>
+            <div className="calculatorDescription">
+              Estimate the EMI for any loan{" "}
+            </div>
+            <div className="d-flex justify-content-between align-items-center my-4 calculatorLinkBtn">
               <Link
                 href="/"
                 className="text-decoration-none text-dark d-flex justify-content-between w-100"
@@ -224,9 +384,11 @@ function Home() {
             <div className="calculatorIcon">
               <img src="../assets/LIFEINSURANCE.png" alt="ICON" />
             </div>
-            <h4>Life Insurance</h4>
-            <div className="description">Estimate the EMI for any loan </div>
-            <div className="d-flex justify-content-between align-items-center my-4">
+            <p className="calculatorTitle">Life Insurance</p>
+            <div className="calculatorDescription">
+              Estimate the EMI for any loan{" "}
+            </div>
+            <div className="d-flex justify-content-between align-items-center my-4 calculatorLinkBtn">
               <Link
                 href="/"
                 className="text-decoration-none text-dark d-flex justify-content-between w-100"
@@ -239,7 +401,7 @@ function Home() {
         </div>
       </section>
     </>
-  );
+  )
 }
 
-export default Home;
+export default Home
