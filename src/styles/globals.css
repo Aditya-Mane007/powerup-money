@@ -34,16 +34,6 @@
   font-family: "Hando";
 }
 
-.rootLayout {
-  display: flex;
-  flex-direction: column;
-}
-
-.rootLayout main {
-  flex: 1;
-}
-
-
 .slick-arrow {
   display: none;
 }

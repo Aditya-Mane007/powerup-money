@@ -1,16 +1,16 @@
-import React, { useState } from "react"
-import "@/styles/Home.module.css"
-import Navbar from "@/components/LayoutComponents/Navbar"
-import SimpleSlider from "@/components/Slider"
-import Link from "next/link"
-import { IoIosArrowRoundForward } from "react-icons/io"
-import Slider from "react-slick"
-import { MdArrowOutward } from "react-icons/md"
+import React, { useState } from "react";
+import "@/styles/Home.module.css";
+import Navbar from "@/components/LayoutComponents/Navbar";
+import SimpleSlider from "@/components/Slider";
+import Link from "next/link";
+import { IoIosArrowRoundForward } from "react-icons/io";
+import Slider from "react-slick";
+import { MdArrowOutward } from "react-icons/md";
 
-import { tabsLinks, categoryBlogs } from "../lib/CONSTANTS.js"
+import { tabsLinks, categoryBlogs } from "../lib/CONSTANTS.js";
 
 function Home() {
-  const [tabs, setTabs] = useState("Investment Portfolio")
+  const [tabs, setTabs] = useState("Investment Portfolio");
   var settings = {
     className: "slider variable-width",
     dots: false,
@@ -21,7 +21,7 @@ function Home() {
     slidesToScroll: 1,
     variableWidth: true,
     arrows: false,
-  }
+  };
   return (
     <>
       <section className="headerSection">
@@ -47,46 +47,6 @@ function Home() {
                 </p>
               </div>
             ))}
-            {/* <div style={{ width: "auto" }}>
-              <p
-                className="rounded-5 border active"
-                style={{ padding: ".5rem 1rem", margin: "0 .5rem" }}
-              >
-                Investment Portfolio
-              </p>
-            </div> */}
-            {/* <div style={{ width: "auto" }}>
-              <p
-                className="rounded-5 border"
-                style={{ padding: ".5rem 1rem", margin: "0 .5rem" }}
-              >
-                P2P LENDING
-              </p>
-            </div>
-            <div style={{ width: "auto" }}>
-              <p
-                className="rounded-5 border"
-                style={{ padding: ".5rem 1rem", margin: "0 .5rem" }}
-              >
-                Personal Finance
-              </p>
-            </div>
-            <div style={{ width: "auto" }}>
-              <p
-                className="rounded-5 border"
-                style={{ padding: ".5rem 1rem", margin: "0 .5rem" }}
-              >
-                Wealth Concepts
-              </p>
-            </div>
-            <div style={{ width: "auto" }}>
-              <p
-                className="rounded-5 border"
-                style={{ padding: ".5rem 1rem", margin: "0 .5rem" }}
-              >
-                news
-              </p>
-            </div> */}
           </Slider>
         </div>
 
@@ -401,7 +361,7 @@ function Home() {
         </div>
       </section>
     </>
-  )
+  );
 }
 
-export default Home
+export default Home;
