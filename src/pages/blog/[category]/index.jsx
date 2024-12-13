@@ -1,12 +1,15 @@
-import React, { useState } from "react";
-import Navbar from "@/components/LayoutComponents/Navbar";
-import Footer from "@/components/LayoutComponents/Footer";
-import { tabsLinks } from "@/lib/CONSTANTS";
-import Slider from "react-slick";
-import Image from "next/image";
-import styles from "@/styles/blog.module.css";
-import Breadcrumb from "@/components/Breadcrumb";
-import CategorySlider from "@/components/categorySlider";
+import React, { useState } from "react"
+import Navbar from "@/components/LayoutComponents/Navbar"
+import Footer from "@/components/LayoutComponents/Footer"
+import { tabsLinks } from "@/lib/CONSTANTS"
+import Slider from "react-slick"
+import Image from "next/image"
+import styles from "@/styles/blog.module.css"
+import Breadcrumb from "@/components/Breadcrumb"
+import CategorySlider from "@/components/categorySlider"
+import { IoIosArrowRoundBack } from "react-icons/io"
+import { IoIosArrowRoundForward } from "react-icons/io"
+import { PaginatedItems } from "@/components/Pagination"
 
 const Data = [
   {
@@ -33,10 +36,10 @@ const Data = [
     image: "../assets/blogImage.svg",
     description: "Essential Non-Negotiable Financial Goals to Set",
   },
-];
+]
 
 function page() {
-  const [tabs, setTabs] = useState("Investment Portfolio");
+  const [tabs, setTabs] = useState("Investment Portfolio")
   var settings = {
     className: "slider variable-width",
     dots: true,
@@ -45,12 +48,12 @@ function page() {
     slidesToShow: 1,
     slidesToScroll: 1,
     variableWidth: true,
-  };
+  }
   return (
     <div className={styles.blogPage}>
       <Navbar />
       <section className="container">
-        {/* <Breadcrumb category={tabs} /> */}
+        <Breadcrumb />
       </section>
       <section className="container my-5">
         <CategorySlider tabs={tabs} setTabs={setTabs} />
@@ -73,8 +76,11 @@ function page() {
           ))}
         </div>
       </section>
+      <section className="container">
+        <PaginatedItems itemsPerPage={4} />,
+      </section>
     </div>
-  );
+  )
 }
 
-export default page;
+export default page

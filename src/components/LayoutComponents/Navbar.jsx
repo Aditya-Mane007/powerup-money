@@ -22,9 +22,9 @@ function Navbar() {
       style={{ background: `${isSticky ? "white" : "transparent"}` }}
     >
       <div className="container">
-        <a className="navbar-brand" href="#">
+        <Link className="navbar-brand" href="/">
           <Image src={Logo} width={15} height={15} className="w-50" />
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -76,3 +76,6 @@ function Navbar() {
 }
 
 export default Navbar
+
+
+// CREATE RESPONSIVE NAVBAR WITH REOINSIVENESS 

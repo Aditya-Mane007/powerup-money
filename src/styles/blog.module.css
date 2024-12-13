@@ -34,22 +34,20 @@
 
 /*  */
 
-.blogContent {
-  width: 70%;
-  padding: 0 0.5rem;
-  overflow: scroll;
-  /* background-color: aqua; */
-}
+/* .blogContent { */
+/* width: 70%; */
+/* padding: 0 0.5rem; */
+/* overflow: scroll; */
+/* background-color: aqua; */
+/* } */
 
 .tableofContent {
   width: 30%;
-  height: auto;
-  padding: 0 1rem;
-  border: 1px solid #e4e4e4;
   border-radius: 15px;
-  /* background-color: aqua; */
+  font-family: "Hando";
 }
 
+/*
 .blogTitle {
   width: 60%;
   padding: 1rem 0;
@@ -77,7 +75,7 @@
   justify-content: center;
   align-items: center;
   margin-inline: auto;
-}
+} */
 
 /* .BlogTextContent  */
 
@@ -99,4 +97,123 @@
     grid-template-columns: repeat(1, 1fr);
     gap: 1rem;
   }
+}
+
+/* .blogDetailedPage {
+  width: 100%;
+  height: auto;
+}
+.blogDetailedPage div {
+  width: 100%;
+} */
+
+.blogDetailedPage {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  grid-template-rows: 0.1fr 0.5fr 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  gap: 1rem;
+  margin: 2.5rem 0;
+}
+
+.div1 {
+  width: 100%;
+  height: 100%;
+  grid-area: 1 / 1 / 2 / 2;
+}
+.div2 {
+  width: 100%;
+  height: 25rem;
+  grid-area: 2 / 1 / 3 / 2;
+  background-color: burlywood;
+  border-radius: 15px;
+}
+
+.div2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.div3 {
+  width: 100%;
+  height: auto;
+  grid-area: 1 / 2 / 4 / 3;
+}
+
+.div4 {
+  width: 100%;
+  height: auto;
+  grid-area: 3 / 1 / 4 / 2;
+}
+
+.TableOFContentContainer {
+  width: 100%;
+  height: auto;
+  padding: 0.5rem;
+  border-radius: 15px;
+  border: 1px solid #e4e4e4;
+}
+
+.tableofContent {
+  width: 100%;
+  overflow: hidden;
+}
+
+.tableofContent::-webkit-scrollbar {
+  width: 10px;
+}
+
+.tableofContentTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+  font-family: "Hando";
+}
+
+/* Pagination */
+
+.pagination {
+  width: auto;
+}
+
+.pagination ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination ul li {
+  margin: 0.5rem;
+  padding: 0.7rem 1rem;
+  list-style: none;
+  border: 1px solid #e4e4e4;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination ul li:first-child {
+  width: auto;
+  padding: 0.7rem;
+  border: 1px solid #e4e4e4;
+  background: black;
+}
+
+.pagination ul li:last-child {
+  width: auto;
+  padding: 0.7rem;
+  color: white;
+  border: 1px solid #e4e4e4;
+  background: black;
+}
+
+.pagination ul li a {
+  text-decoration: none;
+  text-transform: capitalize;
+  color: white;
 }

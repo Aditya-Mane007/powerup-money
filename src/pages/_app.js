@@ -16,3 +16,8 @@ export default function App({ Component, pageProps }) {
     </div>
   );
 }
+
+
+
+// CREATE LAYOUT OF NAVBAR -> MAIN SECTION -> FOOTER
+

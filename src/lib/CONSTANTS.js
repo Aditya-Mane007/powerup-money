@@ -1,25 +1,25 @@
 export const tabsLinks = [
   {
     title: "Investment Portfolio",
-    link: "investmentportfoilo",
+    link: "/blog/investmentportfoilo",
   },
   {
     title: "P2P LENDING",
-    link: "p2plending",
+    link: "/blog/p2plending",
   },
   {
     title: "Personal Finance",
-    link: "personalfinance",
+    link: "/blog/personalfinance",
   },
   ,
   {
     title: "Wealth Concepts",
-    link: "waalthconcepts",
+    link: "/blog/waalthconcepts",
   },
   ,
   {
     title: "news",
-    link: "news",
+    link: "/blog/news",
   },
 ]
 
@@ -79,7 +79,6 @@ export const categoryBlogs = {
   ],
 }
 
-
 export const Links = [
   {
     title: "PowerUp Money",
@@ -95,6 +94,6 @@ export const Links = [
   },
   {
     title: "Blog",
-    link: "/blog",
+    link: "/blog/investmentPortfolio",
   },
 ]

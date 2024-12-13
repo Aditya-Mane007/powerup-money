@@ -31,7 +31,7 @@ function Home() {
         </div>
       </section>
       {/* Blogs Category  */}
-
+      {/* CREATE COMPONENT OF CATEGORY SLIDER WITH LINKS AND ACTIVE LINK*/}
       <section className="container my-5">
         <div className="slider-container">
           <Slider {...settings}>
@@ -224,6 +224,7 @@ function Home() {
       </section> */}
 
       {/* Calculator Section */}
+      {/* ADD DATA DYNAMICALLY   */}
 
       <section className="container my-5 calculatorSection">
         <div className="text-section">
@@ -365,3 +366,7 @@ function Home() {
 }
 
 export default Home;
+
+
+
+// IMPORT IMAGES , DO NOT ADD PATH TO SRC OF IMAGES 

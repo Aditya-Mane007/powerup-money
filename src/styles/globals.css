@@ -59,6 +59,10 @@ img {
   height: 100%;
 }
 
+button {
+  all: unset;
+}
+
 .headerSection {
   width: 100%;
   height: auto;
@@ -117,6 +121,16 @@ img {
   background-color: var(--Black);
   color: var(--White);
   border-radius: 20px;
+}
+
+.active a {
+  color: var(--White);
+}
+
+li a {
+  text-transform: none;
+  text-decoration: none;
+  color: var(--Black);
 }
 
 .categoryLinks div {
