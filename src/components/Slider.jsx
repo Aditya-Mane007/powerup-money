@@ -1,27 +1,30 @@
-import React from "react"
-import Slider from "react-slick"
-import { IoIosArrowRoundForward } from "react-icons/io"
-import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
+import React from "react";
+import Slider from "react-slick";
+import { IoIosArrowRoundForward } from "react-icons/io";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Image from "next/image";
 
 export default function SimpleSlider() {
   var settings = {
-    dots: false,
+    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
-  }
+  };
   return (
     <Slider {...settings}>
       <div className="container">
         <div className="row my-5">
           <div className="col-md-6 col-12 imageDiv">
-            <img
-              src="https://res.cloudinary.com/dj524uqwc/image/upload/v1733833853/powerup%20money/HomeBannerImage_gbso11.png"
+            <Image
+              src="/assets/HomeBannerImage.png"
               alt="Fiance Blog Image"
               loading="lazy"
+              width={100}
+              height={100}
             />
           </div>
           <div className="col-md-6 col-12 my-auto">
@@ -70,10 +73,12 @@ export default function SimpleSlider() {
       <div className="container">
         <div className="row my-5 ">
           <div className="col-md-6 col-12 imageDiv">
-            <img
-              src="https://res.cloudinary.com/dj524uqwc/image/upload/v1733833853/powerup%20money/HomeBannerImage_gbso11.png"
+            <Image
+              src="/assets/HomeBannerImage.png"
               alt="Fiance Blog Image"
               loading="lazy"
+              width={100}
+              height={100}
             />
           </div>
           <div className="col-md-6 col-12 my-auto">
@@ -189,5 +194,5 @@ export default function SimpleSlider() {
     //     </div>
     //   </div>
     // </div>
-  )
+  );
 }

@@ -27,7 +27,7 @@ function CategorySlider({ tabs, setTabs }) {
           >
             <p
               className={`rounded-5  ${
-                tabs == tab.title.trim() ? "active" : ""
+                tabs == tab.title ? "active" : ""
               }`}
               style={{ padding: ".5rem 1rem", margin: "0 .5rem" }}
             >

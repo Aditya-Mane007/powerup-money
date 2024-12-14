@@ -1,26 +1,26 @@
-import React, { useState, useRef } from "react"
-import Navbar from "@/components/LayoutComponents/Navbar"
-import styles from "@/styles/blog.module.css"
-import Image from "next/image"
-import MainImage from "../../../../../public/assets/BlogMainImge.png"
-import Breadcrumb from "@/components/Breadcrumb"
-import DropDownIcon from "../../../../../public/assets/DropdownIcon.svg"
-import Suggestion from "@/components/Suggestion"
+import React, { useState, useRef } from "react";
+import Navbar from "@/components/UI/Navbar";
+import styles from "@/styles/blog.module.css";
+import Image from "next/image";
+import MainImage from "../../../../../public/assets/BlogMainImge.png";
+import Breadcrumb from "@/components/Breadcrumb";
+import DropDownIcon from "../../../../../public/assets/DropdownIcon.svg";
+import Suggestion from "@/components/Suggestion";
 
 function index() {
-  const tableOfContent = useRef()
-  const [height, setHeight] = useState("")
-  const [isOpen, setIsOpen] = useState(true)
+  const tableOfContent = useRef();
+  const [height, setHeight] = useState("");
+  const [isOpen, setIsOpen] = useState(true);
 
   const collapseFunction = () => {
     if (isOpen) {
-      setHeight("0px")
-      setIsOpen(false)
+      setHeight("0px");
+      setIsOpen(false);
     } else {
-      setHeight(tableOfContent.current.scrollHeight)
-      setIsOpen(true)
+      setHeight(tableOfContent.current.scrollHeight);
+      setIsOpen(true);
     }
-  }
+  };
 
   return (
     <>
@@ -185,9 +185,9 @@ function index() {
         <Suggestion title="Top Articles" />
       </div>
     </>
-  )
+  );
 }
 
-export default index
+export default index;
 
 // ADD RESPONSIVENESS TO DETAILED PAGE .

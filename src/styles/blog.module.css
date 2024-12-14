@@ -4,6 +4,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+  margin: 2.5rem 0;
 }
 
 .blog {
@@ -13,6 +14,9 @@
   flex-direction: column;
   border-radius: 15px;
   border: 1px solid #e4e4e4;
+  cursor: pointer;
+  text-decoration: none;
+ color: black; 
 }
 
 .blogImage {
