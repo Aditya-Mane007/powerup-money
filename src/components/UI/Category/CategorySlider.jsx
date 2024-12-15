@@ -25,9 +25,9 @@ function CategorySlider({ Component, props }) {
   if (router.pathname === "/blog") {
     return (
       <>
-        <section className="container">
-          <Breadcrumb currentTab={tabs} />
-        </section>
+        {/* <section className="container"> */}
+        <Breadcrumb currentTab={tabs} />
+        {/* </section> */}
 
         <div className="slider-container">
           <Slider {...settings}>

@@ -6,8 +6,9 @@ import MainImage from "../../../../../public/assets/BlogMainImge.png";
 import Breadcrumb from "@/components/Breadcrumb";
 import DropDownIcon from "../../../../../public/assets/DropdownIcon.svg";
 import Suggestion from "@/components/Suggestion";
+import PageLayout from "@/components/Layout/PageLayout";
 
-function index() {
+function Page() {
   const tableOfContent = useRef();
   const [height, setHeight] = useState("");
   const [isOpen, setIsOpen] = useState(true);
@@ -24,8 +25,10 @@ function index() {
 
   return (
     <>
-      <Navbar />
-      <Breadcrumb />
+      {/* <Navbar /> */}
+      <div className="container">
+        <Breadcrumb />
+      </div>
       <div className="container">
         <div className={styles.blogDetailedPage}>
           <div className={styles.div1} style={{ fontFamily: "Hando" }}>
@@ -188,6 +191,10 @@ function index() {
   );
 }
 
-export default index;
+Page.getLayout = function getLayout(page) {
+  return <PageLayout>{page}</PageLayout>;
+};
+
+export default Page;
 
 // ADD RESPONSIVENESS TO DETAILED PAGE .

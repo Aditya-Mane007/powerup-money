@@ -1,9 +1,11 @@
+import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React from "react";
 import { LuSlash } from "react-icons/lu";
+import styles from "@/styles/blog.module.css";
 
 function Breadcrumb({ currentTab }) {
+  const [filter, setFilter] = useState("new");
   const router = useRouter();
   console.log(router.asPath);
   const routes = router.asPath.split("/").filter(Boolean);
@@ -28,16 +30,18 @@ function Breadcrumb({ currentTab }) {
   console.log(items);
 
   return (
-    <div className="container my-4">
-      <ul className="d-flex list-unstyled align-items-center">
+    <div className="my-4 h-100 d-flex justify-content-between align-content-center">
+      <ul className="d-flex w-100 h-100 list-unstyled align-items-center">
         <li className="nav-item ">
-          <Link href="/">Home</Link>
+          <Link href="/" className="breadcrumb-link">
+            Home
+          </Link>
         </li>
         <LuSlash className="mx-1" />
         {items.map((link) => {
           return (
             <>
-              <li className="nav-item">
+              <li className="nav-item breadcrumb-link">
                 <Link
                   aria-current="page"
                   aria-disabled={link.active}
@@ -56,6 +60,17 @@ function Breadcrumb({ currentTab }) {
           );
         })}
       </ul>
+
+      <div className={styles.filter}>
+        {/* <div className="title mx-2">Sort By</div> */}
+        <select defaultValue={filter} className={styles.select}>
+          <option value="Sort By" disabled selected>
+            Sort By
+          </option>
+          <option value="new">Newest</option>
+          <option value="old">Oldest</option>
+        </select>
+      </div>
     </div>
   );
 }

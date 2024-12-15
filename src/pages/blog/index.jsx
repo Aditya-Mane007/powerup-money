@@ -33,10 +33,12 @@ function Page() {
       {/* <section className="container">
         <Breadcrumb />
       </section> */}
+
       <section className="container">
         <CategorySlider Component={CategoryBlogs} props={CategoryBlogsData} />
         {/* <CategorySlider tabs={tabs} setTabs={setTabs} /> */}
       </section>
+
       {/* <section className="container my-5" style={{ minHeight: "100vh" }}> */}
       {/* <div className={styles.blogs}>
           {Data.map((item) => (

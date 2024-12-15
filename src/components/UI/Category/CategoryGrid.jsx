@@ -75,7 +75,8 @@ function CategoryGrid({ data, tabs }) {
           </div>
         </div>
       </div>
-      <div
+      <Link
+        href="/blog"
         className="btn rounded-5"
         style={{
           border: "2px solid #e4e4e4",
@@ -85,7 +86,7 @@ function CategoryGrid({ data, tabs }) {
       >
         Read All Financial Freedom Blogs{" "}
         <MdArrowOutward style={{ marginLeft: ".5rem" }} />
-      </div>
+      </Link>
     </>
   );
 }

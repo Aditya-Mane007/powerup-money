@@ -1,7 +1,4 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"); */
-
 /* FONTS */
-
 @font-face {
   font-family: "Norse";
   src: url("../../public/fonts/Norse-Regular.otf");
@@ -33,6 +30,7 @@
   box-sizing: border-box;
   font-family: "Hando";
 }
+
 
 html,
 body {
@@ -330,4 +328,8 @@ li a {
     gap: 1rem;
     margin: 1rem 0;
   }
+}
+
+.breadcrumb-link{
+  font-size: 14px;
 }
