@@ -16,14 +16,13 @@ function Navbar() {
     })
   }, [])
   return (
-    // <div classNameName="d-flex justify-content-between p-4 heroSection">
     <nav
       className={`navbar navbar-expand-lg ${isSticky ? "fixed-top" : ""} `}
       style={{ background: `${isSticky ? "white" : "transparent"}` }}
     >
       <div className="container">
-        <Link className="navbar-brand" href="/">
-          <Image src={Logo} width={15} height={15} className="w-50" />
+        <Link className="nvabar-brand" href="/">
+          <Image src={Logo} width={2} height={2} alt="Powerup Money" style={{ width: "11rem" }} />
         </Link>
         <button
           className="navbar-toggler"
@@ -57,9 +56,8 @@ function Navbar() {
               {Links.map((link) => (
                 <li className="nav-item ">
                   <Link
-                    className={`nav-link ${
-                      router.pathname == link.link ? "active" : ""
-                    }`}
+                    className={`nav-link ${router.pathname == link.link ? "active" : ""
+                      }`}
                     aria-current="page"
                     href={link.link}
                   >

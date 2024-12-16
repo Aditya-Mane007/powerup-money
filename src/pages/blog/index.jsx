@@ -16,7 +16,9 @@ import CategoryBlogs from "@/components/UI/Category/CategoryBlogs";
 // Layout
 import PageLayout from "@/components/Layout/PageLayout";
 
-function Page() {
+function Page({ categories, categoryData }) {
+
+  console.log(categories)
   // const router = useRouter();
   // const [tabs, setTabs] = useState();
   // var settings = {
@@ -35,7 +37,7 @@ function Page() {
       </section> */}
 
       <section className="container">
-        <CategorySlider Component={CategoryBlogs} props={CategoryBlogsData} />
+        <CategorySlider categories={categories} categoryData={categoryData} Component={CategoryBlogs} />
         {/* <CategorySlider tabs={tabs} setTabs={setTabs} /> */}
       </section>
 
@@ -68,3 +70,14 @@ Page.getLayout = function getLayout(page) {
 };
 
 export default Page;
+
+
+export async function getServerSideProps() {
+  const getCategories = await fetch("https://powerup.onerooftechnologiesllp.com/wp-json/wp/v2/categories")
+  const categories = await getCategories.json()
+
+  const getCategoryData = await fetch(`https://powerup.onerooftechnologiesllp.com/wp-json/wp/v2/posts?categories=${categories[0].id}&page=1&per_page=9`)
+  const categoryData = await getCategoryData.json()
+
+  return { props: { categories, categoryData } }
+}

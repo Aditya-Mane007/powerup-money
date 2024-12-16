@@ -3,21 +3,21 @@ import styles from "@/styles/blog.module.css";
 import Image from "next/image";
 import Link from "next/link";
 
-function CategoryBlogs({ data, tabs }) {
-  console.log(data);
+function CategoryBlogs({ categoryData, tabs }) {
+  console.log(categoryData);
   return (
     <div className={styles.blogs}>
-      {data.map((item, index) => (
+      {categoryData.map((item) => (
         <Link
-          href={`/blog/${tabs.replace(" ", "-").toLowerCase()}/${item.link}`}
+          href={`/blog/${tabs.replaceAll(" ", "-").toLowerCase()}/${item.slug}`}
           className={styles.blog}
-          key={index}
+          key={item.id}
         >
           <div className={styles.blogImage}>
-            <Image src={item.image} width={10} height={10} />
+            <Image src={item.acf.thumbnail_media.thumbnail_media} width={10} height={10} />
           </div>
           <div className={styles.description} style={{ fontFamily: "Norse" }}>
-            {item.description}
+            {item.title.rendered}
           </div>
         </Link>
       ))}

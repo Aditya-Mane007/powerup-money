@@ -9,7 +9,7 @@ function Breadcrumb({ currentTab }) {
   const router = useRouter();
   console.log(router.asPath);
   const routes = router.asPath.split("/").filter(Boolean);
-  console.log(routes);
+  // console.log(routes);
 
   const items = routes.map((route, index) => ({
     href: "/" + routes.slice(0, index + 1).join("/"),
@@ -46,11 +46,10 @@ function Breadcrumb({ currentTab }) {
                   aria-current="page"
                   aria-disabled={link.active}
                   href={link.href}
-                  className={`${
-                    link.active
+                  className={`${link.active
                       ? "text-body-secondary pointer-none pe-none"
                       : "text-dark"
-                  }`}
+                    }`}
                 >
                   {link.label}
                   <LuSlash className="mx-1" />

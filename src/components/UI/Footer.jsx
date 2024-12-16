@@ -22,6 +22,7 @@ function Footer() {
 
         {/* CREATE ARRAY OF OBJECTS AND ADD DATA DYNAMICALLY */}
         <div className="socials">
+
           <Link href="/" className="text-decoration-none text-light ">
             Instagram <MdArrowOutward />
           </Link>
@@ -34,6 +35,7 @@ function Footer() {
           <Link href="/" className="text-decoration-none text-light ">
             Facebook <MdArrowOutward />
           </Link>
+
         </div>
       </div>
     </div>
