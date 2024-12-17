@@ -20,6 +20,7 @@ function Home({ categories, categoryData }) {
   const [currentTab, setCurrentTab] = useState(categories[0].name)
 
   const imagesId = [categoriesData[0]?.acf.thumbnail_media?.thumbnail_media, categoriesData[1]?.acf.thumbnail_media?.thumbnail_media, categoriesData[2]?.acf.thumbnail_media?.thumbnail_media]
+
   const [images, setImages] = useState([])
 
   const handleCategoryData = async (id) => {
@@ -39,12 +40,12 @@ function Home({ categories, categoryData }) {
 
   }
 
-
   useEffect(() => {
     imagesId.forEach(async (id) => {
       const data = await fetchImageUrlById(id)
       setImages((prev) => [...prev, data])
     })
+
   }, [])
 
 
@@ -153,7 +154,7 @@ function Home({ categories, categoryData }) {
               </div>
             </div>
             <Link
-              href="/blog"
+              href={`/blog?category=${currentTab.replaceAll(" ", "-")}`}
               className="btn rounded-5"
               style={{
                 border: "2px solid #e4e4e4",

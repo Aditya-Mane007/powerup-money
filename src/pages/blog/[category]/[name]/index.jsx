@@ -1,5 +1,4 @@
 import React, { useState, useRef } from "react";
-import Navbar from "@/components/UI/Navbar";
 import styles from "@/styles/blog.module.css";
 import Image from "next/image";
 import MainImage from "../../../../../public/assets/BlogMainImge.png";
@@ -9,23 +8,22 @@ import Suggestion from "@/components/Suggestion";
 import PageLayout from "@/components/Layout/PageLayout";
 
 function Page() {
-  const tableOfContent = useRef();
-  const [height, setHeight] = useState("");
-  const [isOpen, setIsOpen] = useState(true);
+  // const tableOfContent = useRef();
+  // const [height, setHeight] = useState("");
+  // const [isOpen, setIsOpen] = useState(true);
 
-  const collapseFunction = () => {
-    if (isOpen) {
-      setHeight("0px");
-      setIsOpen(false);
-    } else {
-      setHeight(tableOfContent.current.scrollHeight);
-      setIsOpen(true);
-    }
-  };
+  // const collapseFunction = () => {
+  //   if (isOpen) {
+  //     setHeight("0px");
+  //     setIsOpen(false);
+  //   } else {
+  //     setHeight(tableOfContent.current.scrollHeight);
+  //     setIsOpen(true);
+  //   }
+  // };
 
   return (
     <>
-      {/* <Navbar /> */}
       <div className="container">
         <Breadcrumb />
       </div>
@@ -40,68 +38,66 @@ function Page() {
             <Image src={MainImage} width={100} height={100} />
           </div>
 
-          <div className={styles.div3} style={{ height: `${height + 16}px` }}>
+          <div className={styles.div3}>
             <div className={styles.TableOFContentContainer}>
               <div className={styles.tableofContentTitle}>
-                Table of contents{" "}
-                <button
-                  onClick={collapseFunction}
-                  // type="button"
-                  // data-bs-toggle="collapse"
-                  // data-bs-target="#collapseExample"
-                  // aria-expanded="false"
-                  // aria-controls="collapseExample"
-                >
+                Table of contents
+                <button class="btn border-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                   <Image src={DropDownIcon} width={10} height={10} />
+
                 </button>
               </div>
-              <div className={styles.tableofContent} style={{ height: height }}>
-                <ol
-                  id="collapseExample"
-                  ref={tableOfContent}
-                  style={{ height: height, overflow: "hidden" }}
-                >
-                  <li>Introduction to Financial Statements</li>
-                  <ul>
-                    <li>Definition of Financial Statements</li>
-                    <li>Importance of Understanding Financial Statements</li>
-                  </ul>
-                  <li>Income Statement</li>
-                  <ul>
-                    <li>Definition and Purpose</li>
-                    <li>Key Components: Revenue, Expenses, and Profit</li>
-                  </ul>
-                  <li>Balance Sheet</li>
-                  <ul>
-                    <li>Definition and Purpose</li>
-                    <li>Key Components: Assets, Liabilities, and Equity</li>
-                  </ul>
-                  <li>Cash Flow Statement</li>
-                  <ul>
-                    <li>Definition and Purpose</li>
-                    <li>
-                      Key Components: Operating, Investing, and Financing
-                      Activities
-                    </li>
-                  </ul>
-                  <li>Cash Flow Statement</li>
-                  <ul>
-                    <li>Definition and Purpose</li>
-                    <li>
-                      Key Components: Operating, Investing, and Financing
-                      Activities
-                    </li>
-                  </ul>
-                  <li>Cash Flow Statement</li>
-                  <ul>
-                    <li>Definition and Purpose</li>
-                    <li>
-                      Key Components: Operating, Investing, and Financing
-                      Activities
-                    </li>
-                  </ul>
-                </ol>
+              <div class="collapse" id="collapseExample">
+                <div class="card card-body border-0">
+                  <div className={styles.tableofContent}>
+                    <ol
+                      id="collapseExample"
+                    // ref={tableOfContent}
+                    >
+                      <li>Introduction to Financial Statements</li>
+                      <ul>
+                        <li>Definition of Financial Statements</li>
+                        <li>Importance of Understanding Financial Statements</li>
+                      </ul>
+                      <li>Income Statement</li>
+                      <ul>
+                        <li>Definition and Purpose</li>
+                        <li>Key Components: Revenue, Expenses, and Profit</li>
+                      </ul>
+                      <li>Balance Sheet</li>
+                      <ul>
+                        <li>Definition and Purpose</li>
+                        <li>Key Components: Assets, Liabilities, and Equity</li>
+                      </ul>
+                      <li>Cash Flow Statement</li>
+                      <ul>
+                        <li>Definition and Purpose</li>
+                        <li>
+                          Key Components: Operating, Investing, and Financing
+                          Activities
+                        </li>
+                      </ul>
+                      <li>Cash Flow Statement</li>
+                      <ul>
+                        <li>Definition and Purpose</li>
+                        <li>
+                          Key Components: Operating, Investing, and Financing
+                          Activities
+                        </li>
+                      </ul>
+                      <li>Cash Flow Statement</li>
+                      <ul>
+                        <li>Definition and Purpose</li>
+                        <li>
+                          Key Components: Operating, Investing, and Financing
+                          Activities
+                        </li>
+                      </ul>
+                    </ol>
+                  </div>
+                </div>
               </div>
+
             </div>
           </div>
 
@@ -133,7 +129,7 @@ function Page() {
               </li>
               <li>
                 Another interesting answer – Ability to lead a life with the way
-                I want to. 
+                I want to.
               </li>
             </ul>
 
@@ -155,7 +151,7 @@ function Page() {
 
             <p>
               As the proverb goes, "Time is money," and it's true- time is a
-              precious resource that we must use wisely. 
+              precious resource that we must use wisely.
             </p>
 
             <hr />
@@ -186,10 +182,11 @@ function Page() {
         </div>
         <Suggestion title="Related Articles" />
         <Suggestion title="Top Articles" />
-      </div>
+      </div >
     </>
-  );
+  )
 }
+
 
 Page.getLayout = function getLayout(page) {
   return <PageLayout>{page}</PageLayout>;

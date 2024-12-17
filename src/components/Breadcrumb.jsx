@@ -7,9 +7,9 @@ import styles from "@/styles/blog.module.css";
 function Breadcrumb({ currentTab }) {
   const [filter, setFilter] = useState("new");
   const router = useRouter();
-  console.log(router.asPath);
-  const routes = router.asPath.split("/").filter(Boolean);
-  // console.log(routes);
+  const routes = router.pathname.split("/").filter(Boolean);
+
+  console.log(router)
 
   const items = routes.map((route, index) => ({
     href: "/" + routes.slice(0, index + 1).join("/"),
@@ -27,7 +27,6 @@ function Breadcrumb({ currentTab }) {
     items.push(item);
   }
 
-  console.log(items);
 
   return (
     <div className="my-4 h-100 d-flex justify-content-between align-content-center">
@@ -47,8 +46,8 @@ function Breadcrumb({ currentTab }) {
                   aria-disabled={link.active}
                   href={link.href}
                   className={`${link.active
-                      ? "text-body-secondary pointer-none pe-none"
-                      : "text-dark"
+                    ? "text-body-secondary pointer-none pe-none"
+                    : "text-dark"
                     }`}
                 >
                   {link.label}
@@ -60,16 +59,23 @@ function Breadcrumb({ currentTab }) {
         })}
       </ul>
 
-      <div className={styles.filter}>
-        {/* <div className="title mx-2">Sort By</div> */}
-        <select defaultValue={filter} className={styles.select}>
-          <option value="Sort By" disabled selected>
-            Sort By
-          </option>
-          <option value="new">Newest</option>
-          <option value="old">Oldest</option>
-        </select>
-      </div>
+
+      {router.pathname == "/blog" && (
+
+        <div className={styles.filter}>
+          {/* <div className="title mx-2">Sort By</div> */}
+          <select defaultValue={filter} className={styles.select}>
+            <option value="Sort By" disabled selected>
+              Sort By
+            </option>
+            <option value="new">Newest</option>
+            <option value="old">Oldest</option>
+          </select>
+        </div>
+      )}
+
+
+
     </div>
   );
 }

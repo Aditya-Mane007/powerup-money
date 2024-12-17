@@ -10,6 +10,9 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "powerup.onerooftechnologiesllp.com"
+      }, {
+        protocol: "https",
+        hostname: "dummyimage.com"
       }
     ],
   },

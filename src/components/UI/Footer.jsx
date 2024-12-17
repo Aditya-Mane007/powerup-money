@@ -9,7 +9,7 @@ function Footer() {
       <div className="container d-flex flex-column flex-md-row justify-content-between align-items-center">
         <div>
           <div className="logo my-4">
-            <Image src="../../assets/powerUpLogo.svg" width={50} height={50} />
+            <Image src="../../assets/powerUpLogo.svg" width={25} height={25} style={{width:"11rem"}}/>
           </div>
 
           <address>

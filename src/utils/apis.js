@@ -5,7 +5,8 @@ export async function fetchImageUrlById(imageId) {
     try {
         const response = await fetch(`${BASE_URL}/wp-json/wp/v2/media/${imageId}`);
         if (!response.ok) {
-            throw new Error('Network response was not ok');
+            // throw new Error('Network response was not ok');
+            return "https://dummyimage.com"
         }
         const imageData = await response.json();
         return imageData.media_details.sizes.full.source_url;
@@ -22,17 +23,19 @@ export const handleCategoryData = async (categoryId) => {
         const getCategoryData = await fetch(`${BASE_URL}/wp-json/wp/v2/posts?categories=${categoryId}&page=1&per_page=9`)
         const categoryData = await getCategoryData.json()
 
-        const imagesId = [categoryData[0].asf.thumbnail_media.thumbnail_media, categoryData[1].asf.thumbnail_media.thumbnail_media, categoryData[2].asf.thumbnail_media.thumbnail_media,]
+        // const imagesId = [categoryData[0].asf.thumbnail_media.thumbnail_media, categoryData[1].asf.thumbnail_media.thumbnail_media, categoryData[2].asf.thumbnail_media.thumbnail_media]
 
-        const images = []
+        const imagesId = categoryData.slice(0, 4).map((data) => data.asf.thumbnail_media.thumbnail_media)
 
-        imagesId.forEach(async (id) => {
-            const data = await fetchImageUrlById(id)
-            images.push(data)
-        })
+        const images = Promise.all(imagesId.map((id) => fetchImageUrlById(id)))
+
+        // imagesId.forEach(async (id) => {
+        //     const data = await fetchImageUrlById(id)
+        //     images.push(data)
+        // })
 
 
-        return [categoryData, images]
+        return { categoryData, images }
     } catch (error) {
         console.error('Error fetching image:', error);
         return null;

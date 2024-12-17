@@ -5,15 +5,34 @@ import Image from "next/image"
 import Logo from "../../../public/assets/powerup_money_logo_black.svg"
 import { Links } from "../../lib/CONSTANTS.js"
 import { useRouter } from "next/router"
+import { BASE_URL } from "@/utils/apis"
 
 function Navbar() {
+  const [category, setCategory] = useState("")
   const [isSticky, setIsSticky] = useState(false)
   const router = useRouter()
+
+  const handleCategories = async () => {
+    try {
+      const getCategories = await fetch(`${BASE_URL}/wp-json/wp/v2/categories`)
+      const categories = await getCategories.json()
+      setCategory(categories[0].name)
+    } catch (error) {
+      console.log("Error Fetching Categories: ", error)
+    }
+  }
+
+  console.log(category)
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
       window.scrollY >= 80 ? setIsSticky(true) : setIsSticky(false)
     })
+  }, [])
+
+
+  useEffect(() => {
+    handleCategories()
   }, [])
   return (
     <nav
@@ -65,6 +84,11 @@ function Navbar() {
                   </Link>
                 </li>
               ))}
+              <li className="nav-item">
+                <Link href={`/blog?category=${category.replaceAll(" ", "-")}`} className={`nav-link ${router.pathname == "/blog" ? 'active' : ""}`} aria-current="page">
+                  Blog
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -74,6 +98,7 @@ function Navbar() {
 }
 
 export default Navbar
+
 
 
 // CREATE RESPONSIVE NAVBAR WITH REOINSIVENESS 

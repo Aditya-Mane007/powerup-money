@@ -1,25 +1,26 @@
 .suggestionTitle {
   color: #000000;
   font-family: "Hando";
-  font-size: 40px;
+  font-size: 1.5rem;
   font-style: normal;
   font-weight: 700;
   margin: 1rem 0;
 }
 
-.blogs {
+/* .blogs {
   width: 100%;
   display: flex;
-  gap:1rem
-}
+  gap: 1rem
+} */
 
 .blog {
-  width: 100%;
+  width: 100px;
   height: auto;
   display: flex;
   flex-direction: column;
   border-radius: 15px;
   border: 1px solid #e4e4e4;
+  margin: 0 1rem;
 }
 
 .blogImage {

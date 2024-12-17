@@ -2,6 +2,8 @@ import React from "react"
 import styles from "@/styles/suggestion.module.css"
 import Slider from "react-slick"
 import Image from "next/image"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
 
 const Data = [
   {
@@ -19,40 +21,43 @@ const Data = [
 ]
 
 function Suggestion({ title }) {
-  const settings = {
-    dots: true,
+  var settings = {
+    className: "slider variable-width",
+    dots: false,
     infinite: false,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3,
+    accessibility: true,
+    centerMode: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    variableWidth: true,
     arrows: false,
-  }
+  };
   return (
-    <section className="container my-5">
+    <section className="container my-2">
       <div className={styles.suggestionTitle}>{title}</div>
 
-      {/* <div className="slider-container"> */}
-      <div className={styles.blogs}>
-        {/* <Slider {...settings}> */}
-        {Data.map((item) => (
-          <>
-            <div
-              className={styles.blog}
-              style={{ width: "auto", height: "auto" }}
-            >
-              <div className={styles.blogImage}>
-                <Image src={item.image} width={10} height={10} />
-              </div>
+      {/* <div className={styles.blogs}> */}
+      <div className="slider-container">
+        <Slider {...settings}>
+          {Data.map((item) => (
+            <>
               <div
-                className={styles.description}
-                style={{ fontFamily: "Norse" }}
+                className={styles.blog}
+                style={{ width: "400px", height: "auto", margin: "1rem" }}
               >
-                {item.description}
+                <div className={styles.blogImage}>
+                  <Image src={item.image} width={10} height={10} />
+                </div>
+                <div
+                  className={styles.description}
+                  style={{ fontFamily: "Norse" }}
+                >
+                  {item.description}
+                </div>
               </div>
-            </div>
-          </>
-        ))}
-        {/* </Slider> */}
+            </>
+          ))}
+        </Slider>
       </div>
       {/* </div> */}
     </section>

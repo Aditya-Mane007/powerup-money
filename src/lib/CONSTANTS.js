@@ -170,10 +170,7 @@ export const Links = [
     title: "Calculators",
     link: "/calculators",
   },
-  {
-    title: "Blog",
-    link: "/blog",
-  },
+
 ];
 
 export const Calculators = [
